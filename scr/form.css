@@ -1,0 +1,154 @@
+._20 {
+    width: 16%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    }
+._10 {
+    width: 8%;
+    display: inline;
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    }
+
+._25 {
+    width: 21%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    }
+
+._33 {
+    width: 29%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    }
+._50 {
+    width: 46%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+._40 {
+    width: 36%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+._30 {
+    width: 26%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+._96 {
+    width: 96%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+._100 {
+    width: 100%;
+    display: inline;
+    float: left;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+._80 {
+    width: 76%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+._60 {
+    width: 56%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+._75 {
+    width: 71%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    }
+._13 {
+    width: 11%;
+    display: inline;
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    }
+._15 {
+    width: 13%;
+    display: inline;
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    }
+._17 {
+    width: 15%;
+    display: inline;
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    }
+    
+input[type=checkbox],input[type=radio],input[type=select] {
+ -webkit-appearance:none;
+ -moz-appearance:none;
+ }
+ 
+h5 {
+   color:red;
+   font-style: italic;
+   font-size: large;
+}
+h6 {
+   color:red; 
+}
+
+.labUse {
+    float:right;
+    width:90%;
+}
+
+.hidden {
+    display: none;
+}
+
+.template.hide {
+    display: none;
+}
+
+div.hasDatepicker{ display: block; padding: 0; overflow: visible; margin: 8px 0; max-width:340px }
+.ui-datepicker { overflow: visible; margin: 0; }
+.ui-datepicker .ui-datepicker-header { position:relative; padding:.6em 0; border-bottom: 0; font-weight: bold; }
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { padding: 1px 0 1px 2px; position:absolute; top: .6em; margin-top: 0; text-indent: -9999px; }
+
+.ui-datepicker .ui-datepicker-prev { left:9px; }
+.ui-datepicker .ui-datepicker-next { right:2px; }
+.ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year { width: 49%;}
+.ui-datepicker table {width: 100%; border-collapse: collapse; margin:0; }
+.ui-datepicker td { border-width: 1px; padding: 0; text-align: center; min-width: 41px; }
+.ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em 0; font-weight: bold; margin: 0; border-width: 0; text-align: center; text-decoration: none; }
+
+.ui-datepicker-calendar th { padding-top: .4em; padding-bottom: .4em; }
+.ui-datepicker-calendar th span, .ui-datepicker-calendar span.ui-state-default { opacity: .7; }
+.ui-datepicker-calendar td a, .ui-datepicker-calendar td span { padding: .6em .5em; }
