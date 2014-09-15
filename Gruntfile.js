@@ -30,6 +30,9 @@ all: [
  grunt.loadNpmTasks('grunt-jscs');
  grunt.loadNpmTasks('grunt-contrib-jshint');
 // Register alias tasks.
-grunt.registerTask('default', ['jscs', 'jshint']);
+ grunt.registerTask('lint',
+ 'Statically analyze the project JavaScript for errors and code style',
+ ['jscs', 'jshint']);
+ grunt.registerTask('default', ['lint']);
 
 };
