@@ -1,13 +1,14 @@
 'use strict';
 
 module.exports = function(grunt) {
-// Project configuration.
+
 grunt.initConfig({
-@@ -6,13 +8,31 @@ module.exports = function(grunt) {
-options: {
-config: '.jscsrc',
-},
-all: [
+ pkg: grunt.file.readJSON('package.json'),
+ jscs: {
+ options: {
+ config: '.jscsrc',
+ },
+ all: [
  '<%= jshint.build.src %>',
  '<%= jshint.app.src %>',
  ],
@@ -25,7 +26,8 @@ all: [
  },
  src: 'src/**/*.js',
  },
-},
+ },
+
 watch: {
  livereload: {
  options: {
@@ -47,13 +49,16 @@ watch: {
  },
  },
 });
- grunt.loadNpmTasks('grunt-jscs');
- grunt.loadNpmTasks('grunt-contrib-jshint');
- grunt.loadNpmTasks('grunt-contrib-watch');
-// Register alias tasks.
- grunt.registerTask('lint',
- 'Statically analyze the project JavaScript for errors and code style',
- ['jscs', 'jshint']);
- grunt.registerTask('default', ['lint', 'watch']);
 
+grunt.loadNpmTasks('grunt-jscs');
+grunt.loadNpmTasks('grunt-contrib-jshint');
+grunt.loadNpmTasks('grunt-contrib-watch');
+
+// Register alias tasks.
+grunt.registerTask('lint',
+'Statically analyze the project JavaScript for errors and code style',
+['jscs', 'jshint']);
+
+ grunt.registerTask('default', ['lint', 'watch']);
+ 
 };
