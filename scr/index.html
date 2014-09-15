@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html manifest="SiteVisit.appcache">
+
+  <head>
+    <meta charset="UTF-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="icon.png" />
+    <link rel="shortcut icon" type="image/png" href="icon.png" />
+    <link rel="stylesheet" href="jquery.mobile-1.4.3.min.css" />
+    <link rel="stylesheet" type="text/css" href="form.css" />
+   <script src="jquery-1.11.1.min.js"></script>
+   <script src="jquery-ui.js"></script>
+    <script src="jquery.mobile.datepicker.js"></script>
+   
+ 
+    <script src="jquery.maskedinput.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="json2.min.js"></script>
+  
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="flashcanvas.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="CreateXMLScript1.js"></script>
+  
+    <script>
+    $(document).on('mobileinit', function() {
+    $.mobile.toolbar.prototype.options.addBackBtn= true;
+    $.mobile.toolbar.prototype.options.backBtnText="Back";
+    $.mobile.toolbar.prototype.options.backBtnIcon="arrow-l";
+    $.mobile.toolbar.prototype.options.keepNative = ".native";
+    $.mobile.selectmenu.prototype.options.nativeMenu = false;
+    $.mobile.controlgroup.prototype.options.nativeMenu = false;
+    $.mobile.ignoreContentEnabled = true
+    $.mobile.keepNative=".native";
+    })
+    </script>
+    
+    <script src="jquery.mobile-1.4.3.min.js"></script>
+  
+    <!--script>
+    function formSubmit()
+    {
+                document.getElementById("SiteVisit").action = "mailto:DEQWQPBLibrary@mt.gov?cc=" + document.getElementById("COC_Received_By").value + "&subject=Site%20Visit%20Form";
+                document.getElementById("SiteVisit").submit();
+    }
+   </script-->
+
+    <!--script>
+    function formSubmit2()
+    {
+                document.getElementById("SiteVisit").action = "mailto:DEQWQPBLibrary@mt.gov?cc=" + document.getElementById("RelTo2").value + "&subject=Site%20Visit%20Form";
+                document.getElementById("SiteVisit").submit();
+    }
+    </script-->
+
+    <title>Site Visit Form</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+  <body>
+<script src="main.js"></script>
+    <header><h1>Site Visit Form</h1></header>
+    <form method="post" enctype="text/plain" name="SiteVisit" id="SiteVisit">
+
+<div data-role="page" id="chapter1">
+    <div data-role="header" data-theme="b">
+        <h1>Site Information</h1>
+    </div><!--/header-->
+    <!--script>
+        $(document).on('pageinit', function() {
+         var Workplans;
+        $('#btnxml').click(function() {
+            getXML();
+        });
+        $("#Project_ID").change(function () {
+            var selectedIndex = $('#Project_ID option').index($('#Project_ID option:selected')),
+                Workplan = $(Workplans[selectedIndex]);
+            $('#Basin').val(Workplan.find('Area').text());
+            $('#Station_Name').val(Workplan.find('Station_Name').text());
+            $('#Station_Description').val(Workplan.find('Station_Description').text());
+            $('#Station_ID').val(Workplan.find('Station_ID').text());
+            $('#Latitude').val(Workplan.find('Latitude').text());
+            $('#Longitude').val(Workplan.find('Longitude').text());
+            $('#HUC_8_Digit').val(Workplan.find('HUC_8_Digit').text());
+            $('#County').val(Workplan.find('County').text());
+            $('#Anticipated_Visits').val(Workplan.find('Anticipated_Visits').text());
+        });
+   
+        function getXML(){
+            $.ajax({
+            type: "GET",
+            url: "http://deq.mt.gov/wqinfo/WQlibrary/SiteVisit/WorkplanReview.xml",
+            dataType: "xml",
+            success: function (xml) {
+          
+            Workplans = $(xml).find('Workplan');
+        
+            Workplans.each(function () {
+                var Project_ID = $(this).find('Project_ID').text();
+                $("#Project_ID").append("<option>" + Project_ID + "</option>");
+            });
+
+            $("#Project_ID").trigger('change');
+                }
+            });
+            }
+        
+    });
+   
+    </script--> 
+ 
+ <div data-role="main" class="ui-content" id="Site">
+
+ <fieldset>
+  <div class="_100">
+   <div class="_10"><br />
+    <input type="button" id="btnxml" value="XML" />
+   </div>
+    <div class="_25">Project ID <select id="Project_ID" name="Project_ID" data-native-menu="true">
+          </select>  
+    </div>
+    <div class="_25">New Project ID <input type="text" id="NewProject" name="New_Project">
+    </div>
+    <div class="_20">Date  <input type="text" id="date-input" data-inline="false" data-role="date" name="date-input">
+   </div >
+ <script>
+$(function() {
+$("#date-input" ).date();
+});
+ </script>
+   <div class="_20">Time<input type="time" id="time" name="time">
+   </div>
+  </div>
+  <div class="_100">
+    <div class="_40">Site Visit Code<input type="text" name="SiteVisitCode" id="SiteVisitCode">
+    </div>
+    <div class="_40">Major Basin<input type="text" name="Basin" id="Basin">
+    </div>
+    <div class="_20">Anticipated Visits<input type="text" name="Anticipated_Visits" id="Anticipated_Visits">
+    </div>
+  </div>
+  <div class="_100">
+    <div class="_96">
+        <label class=select for=Personnel>Personnel</label>
+            <select id="Personnel" multiple name="Personnel" data-iconpos="left" data-icon="grid">
+                <option>Select all that apply</option>
+                <option>Andersen, Laura	</option>
+                <option>Apfelbeck, Randy</option>
+                <option>Arroues, Pamela	</option>
+                <option>Bostrom, Mark	</option>
+                <option>Clarke, Jessica	</option>
+                <option>Feldman, David	</option>
+                <option>Fernandes, Stephen</option>
+                <option>Flynn, Kyle	</option>
+                <option>Fortman, Kristy	</option>
+                <option>Grubb, Cary	</option>
+                <option>Kron, Darrin	</option>
+                <option>Kusnierz, Paul	</option>
+                <option>Makarowski, Katie</option>
+                <option>Makus, Erik	</option>
+                <option>McCarthy, Mindy	</option>
+                <option>McCauley, Ann	</option>
+		<option>McQuillan, Jolene</option>
+                <option>Nixon, Alan	</option>
+                <option>Ockey, Mark	</option>
+                <option>Pipp, Michael	</option>
+                <option>Ray, Robert	</option>
+                <option>Regensburger, Eric</option>
+                <option>Reistroffer, Steven</option>
+                <option>Sada, Rosie	</option>
+                <option>Schmidt, Christian</option>
+                <option>Sivers, Eric	</option>
+                <option>Smith, Connor	</option>
+                <option>Staten, Christina</option>
+                <option>Steinmetz, Amy	</option>
+                <option>Suplee, Mike	</option>
+                <option>Tollefson, Jordan</option>
+                <option>Trum, Eric	</option>
+                <option>Urban, Eric	</option>
+                <option>Volpe, Lou	</option>
+                <option>Yashan, Dean	</option>
+            </select>
+    </div>
+  </div>
+  <div class="_100">
+    <div class="_50">Station Name  <input type="text" name="Station_Name" id="Station_Name">
+    </div>
+    <div class="_25">Station Description  <input type="text" name="Station_Description" id="Station_Description">
+    </div>
+    <div class="_25">
+        <label class="type-label" for="Station_Type">Station Type </label>
+            <select class="Station_Type" name="Station_Type" id="Station_Type" data-iconpos="left" data-icon="grid">
+                <option>Select</option>
+                <option>Canal Drainage</option>
+                <option>Canal Irrigation</option>
+                <option>Canal Transport</option>
+                <option>Channelized Stream</option>
+                <option>Facility Industrial</option>
+                <option>Facility POTW</option>
+                <option>Facility PWS</option>
+                <option>Facility Other</option>
+                <option>Lake</option>
+                <option>Land</option>
+                <option>Land Runoff</option>
+                <option>Landfill</option>
+                <option>Mine Discharge</option>
+                <option>Mine Discharge Adit</option>
+                <option>Mine Discharge Tail</option>
+                <option>Mine Discharge Waste</option>
+                <option>Reservoir</option>
+                <option>River/Stream</option>
+                <option>Spring</option>
+                <option>Storm Sewer</option>
+                <option>Well</option>
+                <option>Wetland</option>
+                <option>Other Ground Water</option>
+                <option>Other Surface Water</option>
+                <option>River/Stream Interm</option>
+                <option>River/Stream Peren</option>
+                <option>Pipe Unspecified</option>
+            </select>
+    </div>
+  </div>
+  <div class="_100">
+    <div class="_20">Station ID  <input type="text" name="Station_ID" id="Station_ID">
+    </div >
+    <div class="_20">Visit #  <input type="number" id="Station_Visit_Number" name="Visit">  <br>
+    </div>
+    <div class="_30">HUC  <input type="text" id="HUC_8_Digit" name="HUC_8_Digit">
+    </div>
+    <div class="_30">County<input type="text" id="County" name="County">
+    </div>
+  </div>
+ </fieldset>
+ <fieldset> 
+            <script>
+                $(function() {
+                    $("#lat").mask("99-99999");
+                    $("#long").mask("-999-99999");
+                            }
+                    );
+            </script>
+  <div id="geolocation" class="_100">
+    <div class="_15">Latitude <input type="number" id="Latitude" name="Latitude">
+    </div>
+    <div class="_15">Longitude <input type="text" id="Longitude" name="Longitude">
+    </div>
+    <div class="_15"><label><input type="text" id="accuracy" name="accuracy" data-mini="true"></label>
+        <button class="ui-btn ui-btn-b ui-mini" onclick="getLocationConstant()">Get Location</button>
+    </div>
+
+            <!--script>
+                function getLocationConstant()
+                {
+                    if(navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(onGeoSuccess,onGeoError);  
+                } else {
+                alert("Your browser or device doesn't support Geolocation");
+                }
+                }
+
+            // If we have a successful location update
+                function onGeoSuccess(event)
+                {
+                    document.getElementById("Latitude").value =  event.coords.latitude; 
+                    document.getElementById("Longitude").value = event.coords.longitude;
+                    document.getElementById("Elevation").value = event.coords.altitude;
+                    document.getElementById("accuracy").value = event.coords.accuracy +"% accuracy";
+                }
+
+            // If something has gone wrong with the geolocation request
+                function onGeoError(event)
+                {
+                    alert("Error code " + event.code + ". " + event.message);
+                }
+            </script-->
+
+    <div class="_10">Elevation <input type="number" name="height" id="Elevation">
+    </div>
+    <div class="_13" id="Elevation_Unit" data-role="controlgroup" data-type="horizontal">
+        <label><br /></label>
+            <input type="radio" id="radFeet" value="feet" name="Elevation" data-mini="true" />
+        <label for="radFeet">ft</label>
+            <input type="radio" id="radMeter" value="meter" name="Elevation" data-mini="true" />
+        <label for="radMeter">m</label>
+    </div>
+    <div class="_15">
+        <label>Method</label>
+            <select id = "Geopositioning_Method" data-mini="true" name="GeoMethod" data-iconpos="right" data-icon="grid">
+                <option>Select</option>
+                <option>GPS-DIFF</option>
+                <option>GPS</option>
+                <option>GPS-UNSPECIFIED</option>
+                <option>INTERPOLATION-DIGITL</option>
+                <option>INTERPOLATION-MAP</option>
+                <option>INTERPOLATION-OTHER</option>
+                <option>INTERPOLATION-PHOTO</option>
+                <option>INTERPOLATION-SAT</option>
+                <option>UNKNOWN</option>
+            </select>
+    </div>
+    <div class="_15">
+        <label>Datum</label>
+            <select id = "Geopositioning_Datum" data-mini="true" name="Datum" data-iconpos="right" data-icon="grid">
+                <option>Select</option>
+                <option value = "NAD83">NAD83</option>
+                <option value = "NAD27">NAD27</option>
+                <option value = "WGS84">WGS84</option>
+            </select>
+    </div>
+  </div> 
+ </fieldset>
+ <br />
+ </div><!--content-->
+    <div data-role="footer" data-theme="b" data-id="SVFnav">
+        <div data-role="navbar">
+           <ul>
+            <li><a class="ui-btn-active ui-state-persist"><h4>Site Info</h4></a></li>
+            <li><a href="#chapter2"><h4>Samples</h4></a></li>
+            <li><a href="#chapter3"><h4>Field</h4></a></li>
+            <li><a href="#chapter4"><h4>Comments</h4></a></li>
+            <li><a href="#chapter5"><h4>Lab Info</h4></a></li>
+           </ul>
+        </div>
+    </div>
+</div>
+    
+<div data-role="page" id="chapter2">
+    <div data-role="header" data-theme="b">
+        <h1>Samples</h1>
+    </div><!--/header-->
+
+        <!--script>
+            $("input[name='SiteVisitCode']").on('change', function(){
+                var SVCode = document.getElementById('SiteVisitCode');
+                    $('#WSampleID').val(SVCode.value +"-W");
+                    $("#QASampleID").val(SVCode.value +"-W-FB");
+                    $('#BactSampleID').val(SVCode.value +"-B");
+                    $("#BactQASampleID").val(SVCode.value +"-B-FD");
+                    $("#SedSampleID").val(SVCode.value +"-SED");
+                    $("#sedQASampleID").val(SVCode.value +"-SED-FD");
+                    $("#Benthic").val(SVCode.value +"-C");
+                    $("#phyChla").val(SVCode.value +"-PHY");
+                    //$("#D2").val(SVCode.value +"-PHY-R1");
+                    $("#CNPSample").val(SVCode.value +"-CNP");
+                    $("#algaeID").val(SVCode.value +"-A");
+                    $("#QAalgae").val(SVCode.value +"-A-FD");
+                    $("#macrosID").val(SVCode.value +"-M");
+                    // $("#CNP2").val(SVCode.value +"-QAP");
+                    $("#QAmacros").val(SVCode.value +"-M-FD");
+            })
+        </script-->
+ 
+ <div data-role="main" class="ui-content" id="Samples">
+  
+  <div data-role="collapsible-set">
+  	   <div data-role="collapsible" data-collapsed="false"> 
+	     <h3>Water Samples</h3>
+	      <fieldset>
+	      		<fieldset><div class="_100">
+   <div class="_60">Sample ID <input type="text" class="input_ID" id="WSampleID" name="WSampleID"></div>
+   <div class="_40" data-role="controlgroup" data-mini="true" data-type="horizontal">
+   <label> Collection Method</label><br />
+             <input type="radio" id="radGrab" value="GRAB" class="Collection" name="Collection" />
+          <label for="radGrab">Grab</label>
+              <input type="radio" id="radEWI" value="EWI"  class="Collection" name="Collection" />
+          <label for="radEWI">EWI</label>
+          <input type="radio" id="radDH" value="DH-48" class="Collection" name="Collection" />
+          <label for="radDH">DH-48</label>
+                </div></div></fieldset>
+                        
+<div id="Template" class="template hide">
+    <div class="_100">
+              <div class="_25"> <fieldset>   
+<label class="label_analysis" for="analysis">Analyte</label>
+        <select class="select_analyte native" name="analysis" id="analysis" data-role="none">
+		<option>Select</option>
+               <option value="TN">TN</option>
+               <option value="TP,NO2+3">TP,NO2+3</option>
+               <option value="TP,NO2+3,NH3+4">TP,NO2+3,NH3+4</option>
+               <option value="DO">Dissolved Orthophosphate</option>
+               <option value="TR">TR Metals, Hardness</option>
+	       <option value="FF">Dissolved Aluminum (FF)</option>
+               <option value="ULL">TR Metals (ULL Hg)</option>
+               <option value="TSS">TSS</option>
+               <option value="TSS/TDS">TSS/TDS</option>
+               <option value="DM">Dissolved Metals (FF)</option>
+	       <option value="TOC">TOC</option>
+               <option value="ABF">Anions, Bromide, Fluoride</option>
+               <option value="CH">Cations, Hardness</option>
+                       </select>  </fieldset></div>
+              
+              <div data-role="controlgroup" data-enhance="false" class="_13"><br />
+	      <label><input type="checkbox" data-role="none" data-mini="true" name="Filtered" id="Filtered" value="True" >
+              0.45u Filtered</label>
+              <label><input type="checkbox" data-mini="true" name="Dup" id="Dup" value="True" data-role="none">
+              Field Dup</label></div>
+           
+	  <div class="_25"><fieldset>
+          <label class="label_preserve" for="preserve">Preserved</label>
+        <select class="select_preserve native" name="preserve" id="preserve" data-role="none">
+            <option>Select</option>
+               <option value="HNO3">HNO&#8323;</option>
+               <option value="H2SO4">H&#8322;SO&#8324;</option>
+               <option value="H3PO4">H&#8323;PO&#8324;</option>
+               <option value="HCL">HCL</option>
+               <option value="None1">None</option>
+        </select></fieldset></div> 
+	<div class="_20"> <fieldset> 
+   <label class="label_cool" for="cool">Cooled</label>
+        <select class="select_cool native" name="cool" id="cool" data-role="none">  
+            <option>Select</option>
+               <option value="Ice">Ice</option>
+               <option value="Frozen">Frozen</option>
+               <option value="None">None</option>
+            </select>
+        </fieldset></div>
+  <div class="_13">
+       <a href="#" class="ui-btn ui-btn-b ui-icon-delete ui-mini removeNew" title="Remove">Remove</a>
+    </div></div>
+        		</div> 
+   
+<div class="_100">
+   
+        <div id="addNew" class="_50">   
+        <a href="#" class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-left showNew" title="Duplicate" >ADD ANALYTE</a>
+           </div>
+    <div class="_50">
+<input type="button" data-theme="b" data-icon="plus" id="showDiv_FB" value="ADD FIELD BLANK">   
+ </div>         
+          
+   </div> 
+ 
+<!--script>
+   $('#hideFB').click(function() {   
+   $('.FieldBlank').remove();
+   });
+</script-->
+
+<script>
+        $('#showDiv_FB').click( function() {
+    $(".FieldBlank").show();
+    });
+
+</script>
+
+<!--script>
+     $(document).ready(function() {
+   $(".FieldBlank").hide();
+    });
+</script-->
+
+  <div class="FieldBlank hidden">
+              
+		<div class="_100"><fieldset>
+   <div class="_60">Sample ID <input type="text" class="input_ID" id="WSampleID1" name="WSampleID1"></div>
+   <div class="_40" data-role="controlgroup" data-mini="true" data-type="horizontal">
+   <label>Collection Method</label><br />
+             <input type="radio" id="radGrab1" value="GRAB" class="Collection" name="CollectionFB" />
+          <label for="radGrab1">Grab</label>
+              <input type="radio" id="radEWI1" value="EWI"  class="Collection" name="CollectionFB" />
+          <label for="radEWI1">EWI</label>
+          <input type="radio" id="radDH1" value="DH-48" class="Collection" name="CollectionFB" />
+          <label for="radDH1">DH-48</label>
+     </div>  </fieldset>         </div>
+
+  <div class="_100"><fieldset>
+    <div class="_80">
+             <select id="ID2_Analysis" multiple name="ID2_Analysis" class="ID2_Analysis" data-iconpos="left" data-icon="grid">
+<option value = "">Analysis (Select all that apply)</option>
+<option value ="ABF_N_I">Anions, Bromide, Fluoride -- None -- Ice</option>
+<option value ="ABF_Filtered_N_I">Anions, Bromide, Fluoride -- 0.45u Filtered -- None -- Ice</option>
+<option value ="CH_HNO3_I">Cations, Hardness -- HNO3 -- Ice</option>
+<option value ="CH_Filtered_HNO3_I">Cations, Hardness -- 0.45u Filtered -- HNO3 -- Ice</option>
+<option value ="FF_HNO3_I">Dissolved Al (F.F.) -- HNO3 -- Ice</option>
+<option value ="FF_Filtered_HNO3_I">Dissolved Al (F.F.) --0.45u Filtered -- HNO3 -- Ice</option>
+<option value ="DM_HNO3_I">Dissolved Metals (F.F) -- HNO3 -- Ice</option>
+<option value ="DM_Filtered_HNO3_I">Dissolved Metals (F.F) --0.45u Filtered -- HNO3 -- Ice</option>
+<option value ="DO_N_I">Dissolved Orthophosphate -- None -- Ice	</option>
+<option value ="DO_Filtered_N_I">Dissolved Orthophosphate --0.45u Filtered -- None -- Ice	</option>
+<option value ="DOC_H2SO4_I">DOC (F.F.) -- H2SO4 -- Ice</option>
+<option value ="DOC_Filtered_H2SO4_I">DOC (F.F.) --0.45u Filtered -- H2SO4 -- Ice</option>
+<option value ="NO2+3, NH3+4, SRP_N_F">NO2+3, NH3+4, SRP -- None -- Frozen</option>
+<option value ="NO2+3, NH3+4, SRP_Filtered_N_F">NO2+3, NH3+4, SRP --0.45u Filtered -- None -- Frozen</option>
+<option value ="TN_N_I">TN -- None -- Ice</option>
+<option value ="TN_Filtered_N_I">TN --0.45u Filtered -- None -- Ice</option>
+<option value ="TN,TP_N_F">	TN, TP -- None -- Frozen</option>
+<option value ="TN,TP_Filtered_N_F">TN, TP --0.45u Filtered -- None -- Frozen</option>
+<option value ="TOC_H2SO4_I">TOC -- H2SO4 -- Ice</option>
+<option value ="TOC_Filtered_H2SO4_I">TOC --0.45u Filtered -- H2SO4 -- Ice</option>
+<option value ="TP, NO2+3_H2SO4_I">TP, NO2+3 -- H2SO4 -- Ice</option>
+<option value ="TP, NO2+3_Filtered_H2SO4_I">TP, NO2+3 --0.45u Filtered -- H2SO4 -- Ice</option>
+<option value ="TP, NO2+3, NH3+4_H2SO4_I">TP, NO2+3, NH3+4 -- H2SO4 -- Ice</option>
+<option value ="TP, NO2+3, NH3+4_Filtered_H2SO4_I">TP, NO2+3, NH3+4 --0.45u Filtered -- H2SO4 -- Ice</option>
+<option value ="TR_HNO_I">TR Metals, Hardness -- HNO3 -- Ice</option>
+<option value ="TR_Filtered_HNO_I">TR Metals, Hardness --0.45u Filtered -- HNO3 -- Ice</option>
+<option value ="TSS_N_I">TSS -- None -- Ice</option>
+<option value ="TSS_Filtered_N_I">TSS --0.45u Filtered -- None -- Ice</option>
+<option value ="TSS/TDS_N_I">TSS/TDS -- None -- Ice	</option>
+<option value ="TSS/TDS_Filtered_N_I">TSS/TDS --0.45u Filtered -- None -- Ice	</option>
+<option value ="ULL_HCL_I">Ultra-low Level Hg -- HCL -- Ice</option>
+<option value ="ULL_Filtered_HCL_I">Ultra-low Level Hg --0.45u Filtered -- HCL -- Ice</option>
+
+	</select></div>
+ 
+     <div class="_20"> <label><br />
+    </label><button class="ui-btn ui-btn-b ui-icon-delete" id="hideFB" onclick="remove">Remove</button></div>
+</fieldset></div>
+ <script>
+   $('#hideFB').click(function() {   
+   $('.FieldBlank').remove();
+   });
+
+  </script>
+</div>
+
+</fieldset> </div>
+  <div data-role="collapsible">
+		<h3>Bacteria Samples</h3>
+		<fieldset>
+                  <div class="_100">
+<div class="_25">Sample ID<input type="text" id="BactSampleID" name="BactSampleID"></div>
+
+<div class="_25">
+  <label class="Bactanalyte" for="Bactanalyte">Analyte</label>
+        <select class="Bactanalyte" id="Bactanalyte" name="Bactanalyte" >
+          <option>Select</option>
+                           <option value = "e-Coli">e-Coli</option>
+                           </select></div>
+<div class="_25">Preserved<input type="text" id="PreservedIn" name="PreservedIn" ></div>
+<div class="_25">
+  <label><br /></label>
+   <a href="#" class="ui-btn ui-btn-b ui-icon-plus ui-mini" id="showDiv">ADD QA</a>
+</div></div>
+		</fieldset>
+  
+  <script>
+   $('#showDiv').click( function() {
+    $("div.Bact2").show();
+       });
+    </script>
+  
+ 
+    <div class="Bact2 hidden">
+  <fieldset>
+<div class = "_100"><hr />
+<div class="_25">QA Sample ID <input type="text" id="BactQASampleID" name="Bact"></div>
+<div class="_25">
+<label class="Bactanalyte_2-label" for="Bactanalyte_2">Analyte</label>
+        <input class="Bactanalyte_2" type="text" id="Bactanalyte_2" name="Bactanalyte_2"> </div>
+<div class="_25">Preserved<input type="text" id="PreservedIn_2" name="PreservedIn_2" ></div>
+   <div class="_25">
+    <label><br />
+    </label><button class="ui-btn ui-btn-b ui-icon-delete" id="hideDiv">Remove</button></div>
+
+ <script>
+   $('#hideDiv').click(function() {   
+   $('.Bact2').remove();
+   });
+
+  </script>
+</div></fieldset></div></div>
+<div data-role="collapsible">
+		<h3>Sediment Samples</h3>
+		<fieldset>
+                  <div class="_100">
+<div class="_25">Sample ID<input type="text" id="SedSampleID" name="SedSampleID"></div>
+
+<div class="_25">
+  <label class="sedanalyte" for="sedanalyte">Analyte</label>
+        <select class="sedanalyte" id="sedanalyte" name="sedanalyte" >
+          <option>Select</option>
+                           <option value = "Metals">Metals</option>
+                           </select></div>
+<div class="_25">Preserved<input type="text" id="Preserved" name="Preserved" ></div>
+<div class="_25">
+  <label><br /></label>
+   <a href="#" class="ui-btn ui-btn-b ui-icon-plus ui-mini" id="showDiv2">ADD QA</a>
+</div></div>
+		</fieldset>
+  <script>
+  
+ $('#showDiv2').click( function() {
+    $('div.analysis2').removeClass('hidden');
+       });
+
+   </script>
+  
+  <!--script>
+     $(document).ready(function() {
+   $('div.analysis2').hide();
+   
+ });
+  </script-->
+<div class = "analysis2 hidden">
+  <fieldset>
+<div class = "_100"><hr />
+<div class="_25">QA Sample ID <input type="text" id="sedQASampleID" name="sedQASampleID"></div>
+<div class="_25">
+<label class="sedanalyte_2-label" for="sedanalyte_2">Analyte</label>
+        <input class="sedanalyte_2" type="text" id="sedanalyte_2" name="sedanalyte_2"> </div>
+<div class="_25">Preserved<input type="text" id="Preserved_2" name="Preserved_2" ></div>
+   <div class="_25">
+    <label><br />
+    </label><a href="#" class="ui-btn ui-btn ui-btn-b ui-icon-delete" id="hideDiv2">Remove</button></a>
+
+ <script>
+   $('#hideDiv2').click(function() {   
+   $('.analysis2').remove();
+   });
+
+  </script>
+</div></fieldset></div></div>
+ 
+<div data-role="collapsible">
+  <h3>Benthic Chl-a Samples</h3>
+<fieldset>
+  <div class="_100">
+  <div class="_50">Sample ID<input type="text" id="Benthic" name="Benthic"><br /></div>
+  
+  <div class="_50" data-role="controlgroup" data-mini="true">
+  <input type="checkbox" id="chkComp" value="True" name="Comp" />
+             <label for = "chkComp">Composite at Lab</label>
+    <input type="checkbox" id="chkAFDW" value="True" name="AFDW" />
+             <label for="chkAFDW">AFDW</label>
+    <input type="checkbox" id="chkVis" value="True" name="Vis" />
+             <label for="chkVis">Visual Est. &#60;50 mg/m2</label></div></div>
+</fieldset><br />
+
+ 
+  <div class="trans"> 
+               <select name="transectA" id="transectA" class="native">
+	      <option>Transect A </option>
+<option value = "RIGHT/SED-CORE">RIGHT/CORE</option>
+ <option value = "RIGHT/HOOP">RIGHT/HOOP</option>
+ <option value = "RIGHT/CHLPHL-1">RIGHT/TEMPLATE</option>
+ <option value = "RIGHT/NONE">RIGHT/NONE</option>
+ <option value = "CENTER/SED-CORE">CENTER/CORE</option>
+ <option value = "CENTER/HOOP">CENTER/HOOP</option>
+ <option value = "CENTER/CHLPHL-1">CENTER/TEMPLATE</option>
+ <option value = "CENTER/NONE">CENTER/NONE</option>
+ <option value = "LEFT/SED-CORE">LEFT/CORE</option>
+ <option value = "LEFT/HOOP">LEFT/HOOP</option>
+ <option value = "LEFT/CHLPHL-1">LEFT/TEMPLATE</option>
+ <option value = "LEFT/NONE">LEFT/NONE</option>
+            </select> </div>
+<!--script>
+      
+  var $transect = $('.trans');
+
+$transect.on('change', 'select', function() {
+    var $this = $(this),
+        $parent = $this.parent(),
+        $transects = $('.trans');
+    
+    if($transects.length < 14 && !$parent.next('.trans').length) {
+        var ltr = String.fromCharCode(65 + $transects.length);
+                    
+        $transect
+            .clone(true, true)
+            .find('select')
+               .attr('name', 'transect' + ltr)
+                .attr('id', 'transect' + ltr)
+                .find('option:eq(0)')
+                    .text('Transect ' + ltr)
+                .end()
+            .end()
+            .insertAfter($parent);
+    }
+});
+      
+
+</script-->
+
+ </div>
+    <div data-role="collapsible">
+  <h3>Phytoplankton Chl-a Sample</h3>
+     <fieldset>
+       <div class="_100">
+      <div class="_25">Sample ID<input type="text" id="phyChla" name="phyChla"></div>
+    <div class="_25">D1 Filtered (mL)<input type="text" name="D1" id="D1"></div>
+    <div class="_25">D2 Filtered (mL)<input type="text" name="D2" id="D2"></div>
+   
+       </div></fieldset></div>
+ 
+<div data-role="collapsible">
+  <h3>Phytoplankton CNP Sample</h3>
+    <fieldset><div class="_100">
+    <div class="_25">Sample ID<input type="text" name="CNPSample" id="CNPSample"></div>
+    <div class="_25">D1 Filtered (mL)<input type="text" name="CNP1" id="CNP1"></div>
+    <div class="_25">D2 Filtered (mL)<input type="text" name="CNP2" id="CNP2"></div>
+   </div> </fieldset></div>
+<div data-role="collapsible">
+  <h3>Algae Sample</h3>
+   <fieldset> <div class="_100">
+    <div class="_25">Sample ID<input type="text" name="algaeID" id="algaeID"></div>
+   <div class="_25"> <label></label>
+          <input type="radio" id="radPeri1mod" name="algae" value="Peri-1-mod" data-mini="true"/>
+          <label for="radPeri1mod">PERI-1-MOD</label>
+ <label> </label>
+          <input type="radio" id="radPeri1" name="algae" value="Peri-1" data-mini="true"/>
+          <label for="radPeri1">PERI-1</label>
+          <input type="radio" id="radOther" name="algae" value="Other" data-mini="true"/>
+          <label for="radOther">Other</label></div>
+  <div class="_25"> Other <input type="text" id="textOther" name="textOther"  /></div>
+  <div class="_25"><label><br /></label>
+    <a href="#" class="ui-btn ui-btn-b ui-icon-plus ui-mini" id="showDiv5">ADD QA</a></div>
+  </div> </fieldset>
+
+         <script>
+     
+ $('#showDiv5').click( function() {
+    $('div.analysis5').removeClass('hidden');
+   });
+ 
+ </script>
+ 
+  <!--script>
+     $(document).ready(function() {
+   $('div.analysis5').hide();
+   
+ });
+   </script-->
+   <div class = "analysis5 hidden">
+   <fieldset><hr />
+     <div class="_100">
+    <div class="_30"><strong>QA Sample ID</strong><input type="text" name="QAalgae" id="QAalgae"></div>
+   <div class="_25"> <label></label>
+          <input type="radio" id="QAradPeri1mod" name="QAalgae1" value="Peri-1-mod" data-mini="true"/>
+          <label for="QAradPeri1mod">PERI-1-MOD</label>
+ <label> </label>
+          <input type="radio" id="QAradPeri1" name="QAalgae1" value="Peri-1" data-mini="true"/>
+          <label for="QAradPeri1">PERI-1</label>
+          <input type="radio" id="QAradOther" name="QAalgae1" value="Other" data-mini="true"/>
+          <label for="QAradOther">Other</label></div>
+  <div class="_25"> Other <input type="text" id="QAtextOther" name="QAtextOther"  /></div>
+     <div class="_20"><label><br /></label>
+      <a href="#" class="ui-btn ui-btn ui-btn-b ui-icon-delete" id="hideDiv5" onclick="remove">Remove</a></div>
+     </div>
+ <script>
+   $('#hideDiv5').click(function() {   
+   $('.analysis5').remove();
+   });
+
+  </script>
+   </fieldset></div></div>
+<div data-role="collapsible">
+  <h3>Macroinvertebrate Sample</h3>
+    <fieldset>
+       <div class="_100">
+      <div class="_25">Sample ID<input type="text" name="macrosID" id="macrosID"></div>
+   <div class="_25"><label></label>
+          <input type="radio" id="radMac" name="Macros" value="Mac-R-500" data-mini="true"/>
+          <label for="radMac">MAC-R-500</label>
+   <label></label>
+          <input type="radio" id="radHess" name="Macros" value="Hess" data-mini="true" />
+          <label for="radHess">HESS</label></div>
+     <div class="_25">Number of Jars<input type="number" id="jars" name="jars"></div>
+<div class="_25"><label><br /></label>
+  <a href="#" class="ui-btn ui-btn-b ui-icon-plus ui-mini" id="showDiv6">ADD QA</a></div>
+       </div></fieldset>
+
+        <script>
+    
+ $('#showDiv6').click( function() {
+    $('div.analysis6').removeClass('hidden');
+   });
+
+ </script>
+ 
+  <!--script>
+     $(document).ready(function() {
+   $('div.analysis6').hide();
+   
+ });
+  </script-->
+   <div class = "analysis6 hidden">
+    <fieldset><hr />
+       <div class="_100">
+      <div class="_30"><strong>QA Sample ID</strong><input type="text" name="QAmacros" id="QAmacros"></div>
+   <div class="_25"><label></label>
+          <input type="radio" id="QAradMac" name="QAMacros1" value="MAC-R-500" data-mini="true"/>
+          <label for="QAradMac">MAC-R-500</label>
+   <label></label>
+          <input type="radio" id="QAradHess" name="QAMacros1" value="Hess" data-mini="true" />
+          <label for="QAradHess">HESS</label></div>
+     <div class="_25">Number of Jars<input type="number" id="QAJars" name="QAJars"></div>
+   <div class="_20"><label><br /></label>
+    <button class="ui-btn ui-btn ui-btn-b ui-icon-delete" id="hideDiv6" onclick="remove">Remove</button></div>
+       </div>
+ <script>
+   $('#hideDiv6').click(function() {   
+   $('.analysis6').remove();
+   });
+
+  </script>
+</fieldset> </div></div></div></div>
+ <div data-role="footer" data-id="SVFnav" data-theme="b">
+           <div data-role="navbar">
+           <ul>
+           <li><a href="#chapter1"><h4>Site Info</h4></a></li>
+            <li><a class="ui-btn-active ui-state-persist"><h4>Samples</h4></a></li>
+             <li><a href="#chapter3"><h4>Field</h4></a></li>
+              <li><a href="#chapter4"><h4>Comments</h4></a></li>
+               <li><a href="#chapter5"><h4>Lab Info</h4></a></li>
+               </ul>
+               </div></div>
+              
+        </div>  
+       <div data-role="page" id="chapter3">
+ <div data-role="header" data-theme="b">
+ <h1>Field Assessments</h1>
+
+ </div><!--/header-->
+
+ 
+ <div data-role="main" class="ui-content" id="Field">
+               <fieldset><div class="_100">
+<div class="_20">Time<input type="time" name="Activity_Start_Time" id="Activity_Start_Time"> </div>
+<div class="_20">Water Temp<input type="number" name="Wtemp" id="Wtemp"> </div>
+
+<div class="_20"  data-role="controlgroup" data-type="horizontal">
+  <label><br /></label>
+    <input type="radio" name="temp" id="radC" value="deg C">
+          <label for="radC">C&#176;</label>
+    <input type="radio" name="temp" id="radF" value="deg F">
+      <label for="radF">F&#176;</label> </div>
+<div class="_20">Air Temp<input type="number" name="air" id="TempA"> </div>
+
+<div class="_20" data-role="controlgroup" data-type="horizontal">
+  <label><br /></label>
+    <input type="radio" name="Atemp" id="radAC" value="deg C">
+          <label for="radAC">C&#176;</label>
+    <input type="radio" name="Atemp" id="radAF" value="deg F">
+      <label for="radAF">F&#176;</label> </div></div>
+  <div class="_100">              
+<div class="_25">SC (uS/cm)<input type="number" id="SC" name="SC">  </div>
+<div class="_25">pH<input type="number" id="PH" name="PH">   </div>
+<div class="_25">DO (mg/L)<input type="number" id="DO" name="DO"></div>
+<div class="_25">DO Saturation %<input type="number" id="SAT" name="SAT"> </div>
+  </div>
+  <div class="_100">
+<div class="_33">Bar Pressure (mm/Hg)<input type="number" id="BAR" name="BAR"></div>
+<div class="_33">Turbidity (NTU)<input type="number" name="TURB" id="TURB"></div>
+<div class="_33"><label for="RBP" class="select">Turbidity</label>
+<select id="RBP" name="RBP" data-iconpos="left" data-icon="grid">
+                <option>Select  </option>
+               <option value = "Clear">Clear</option>
+               <option value = "Slight">Slight</option>
+               <option value = "Turbid">Turbid</option>
+               <option value = "Opaque">Opaque</option>
+               </select></div>
+  </div>
+  <div class="_100">
+<div class="_30">Flow (cfs)<input type="number" id="FLOW" name="FLOW"></div>
+
+  <div data-role="controlgroup" class="_30">
+<label>
+       <input type="checkbox" name="Dry" id="chkdry" value="Dry Bed" >Dry Bed</label>
+ <label>            
+	   <input type="checkbox" name="Pool" id="chkPool" value="Stranded Pool" >Stranded Pools</label>
+             </div>
+            
+      <div class="_40"> <label class="select" for=Method>Method</label>
+      <select id="Method" name="Method" data-iconpos="left" data-icon="grid">
+                <option>Select  </option>
+               <option value = "FLOW-METER-MDEQ-WQ/Actual">Meter</option>
+               <option value = "Doppler">Doppler</option>
+               <option value = "FLOW-FLOAT-MDEQ-WQ/Estimated">Float</option>
+               <option value = "FLOW-GAGE-MDEQ-WQ/Estimated">Gage</option>
+               <option value = "FLOW-EST-MDEQ-WQ/Estimated">Visual Estimate</option>
+               </select></div></div>
+          </fieldset>
+                     
+                  <fieldset>
+                    <div class="_100">
+           <div class="_50"><Label class="select" for="FieldForms">Field Forms</label>
+             <select id="FieldForms" multiple name=FieldForms data-iconpos="left" data-icon="grid">
+               <OPTION>Select all that apply</OPTION>
+	       <option value = "APVA">Aquatic Plant Visual Assessment</option>
+               <option value = "PHO">Photos</option>
+               <option value = "APT">Aquatic Plant Tracking Form</option>
+               <option value = "ROSGEN">Rosgen Form</option>
+               <option value = "NRCS">NRCS Form</option>
+               <option value = "EMAP">EMAP Forms</option>
+               <option value = "SUM">Summary Form</option>
+               <option value = "XS">Channel Cross-Section</option>
+               <option value = "SAM">Sediment Assessment Method</option>
+               <option value = "FISHHA">Fish Cover</option>
+               <option value = "WETLAND">Wetlands Form</option>
+               <option value = "LIGHT">Light/Velocity Form</option>
+               <option value = "SHADE">Temperature</option>
+               <option value = "BACX">Benthic & Algae Cross-Section Monitoring Form</option>
+            </select></div>
+  <div class="_50"><Label class="select" for="DataLoggers">Data Loggers</label>
+             <select id = "DataLoggers" multiple name="DataLoggers" data-iconpos="left" data-icon="grid">
+               <OPTION>Select all that apply</OPTION>
+               <option value = "TEMP-DL">Temperature</option>
+               <option value = "YSI-DL">YSI</option>
+               <option value = "TT-DL">TruTrack</option>
+               <option value = "MDOT-DL">MiniDOT</option>
+               <option value = "AquaRod">AquaRods</option>                           
+               <option value = "WEATHER-DL">Weather Station</option>
+            </select></div></div>
+         
+       </fieldset></div>
+           <div data-role="footer" data-id="SVFnav" data-theme="b">
+           <div data-role="navbar">
+           <ul>
+           <li><a href="#chapter1"><h4>Site Info</h4></a></li>
+            <li><a href="#chapter2"><h4>Samples</h4></a></li>
+             <li><a class="ui-btn-active ui-state-persist"><h4>Field</h4></a></li>
+              <li><a href="#chapter4"><h4>Comments</h4></a></li>
+               <li><a href="#chapter5"><h4>Lab Info</h4></a></li>
+               </ul>
+               </div></div>
+               </div>
+               
+         <div data-role="page" id="chapter4">
+ <div data-role="header" data-theme="b">
+ <h1>Comments</h1>
+ 
+ </div><!--/header-->
+ 
+
+ <div data-role="main" class="ui-content" id="Comments">
+        <fieldset>
+
+            <div class="_25" data-role="controlgroup" data-mini="true" data-type="horizontal">
+	      <label><br /></label>
+	      <label><input type="checkbox" name="TransF" id="chktrF" value="True">
+              Only Transect F</label></div>
+        <div class="_25"> Total Site Length (m)  <input type="number" name="sitelength" id="sitelength"></div>
+        <div class="_25"> Avg Wetted Width (m)  <input type="number" name="width" id="width"> </div>
+         <div class="_25"> Transect Length (m) <input type="number" name="Tlength" id="Tlength"></div>
+          <div class="_100">
+	  <div data-role="fieldcontain">
+<label for="Notes">Comments</label>
+	<textarea name="Notes" id="Notes"></textarea>
+</div></div>
+  
+         </fieldset></div>
+         <div data-role="footer" data-id="SVFnav" data-theme="b">
+           <div data-role="navbar">
+           <ul>
+           <li><a href="#chapter1"><h4>Site Info</h4></a></li>
+            <li><a href="#chapter2"><h4>Samples</h4></a></li>
+             <li><a href="#chapter3"><h4>Field</h4></a></li>
+              <li><a class="ui-btn-active ui-state-persist"><h4>Comments</h4></a></li>
+               <li><a href="#chapter5"><h4>Lab Info</h4></a></li>
+               </ul>
+               </div></div>
+               
+         </div>
+ <div data-role="page" id="chapter5">
+ <div data-role="header" data-theme="b">
+ <h1>Lab Information</h1>
+ </div><!--/header-->
+ 
+
+ <div data-role="main" class="ui-content" id="Lab">
+  <!--script>
+    $(function() {
+      $("#phone").mask("(999) 999-9999");
+         }
+    );
+   </script-->
+        <fieldset>
+          <div class="_100">
+	   <div class="_33">
+            <label class="select" for="lab">Lab Samples Submitted To  </label>
+             <select id="lab" name="lab" data-iconpos="left" data-icon="grid">
+               <option>Select</option>
+	      <option value = "State Lab">State Lab</option>
+               <option value = "Energy">Energy</option>
+               <option value = "Booger">Booger Labs</option>
+             </select>
+           </div>
+        <div class="_33">Account # <input type="text" name="acct" id="LIMS_Account_Number"></div>
+         <div class="_33"> Term Contract Number <input type="text" name="Tcontract" id="Tcontract"></div>
+	  </div>
+          <div class="_100">
+          <div class="_33">Invoice Contact <input type="text" name="invoice" id="invoice"></div>
+	   <div class="_33">Contact  <input type="text" name="contact" id="contact"></div> 
+	   <div class="_33">Phone  <input type="tel" name="phone" id="phone"></div>
+        	</div>  </fieldset>
+	<hr />
+<fieldset>
+  <div class="_100">
+  <div class ="_30">
+  <select id="RelBy1" name="RelBy1" data-iconpos="left" data-icon="grid">
+               <option>Relinquished by</option>
+	       <option>	Andersen, Laura	</option>
+<option>	Apfelbeck, Randy</option>
+<option>	Arroues, Pamela	</option>
+
+            </select></div>
+<div class="_20">
+  <select id="Ship1" name="Ship1" data-iconpos="left" data-icon="grid">
+    <option>Shipping Method</option>
+    <option value="hand">Hand Delivered</option>
+    <option value="FedEx_UPS">FedEx/UPS</option>
+    <option value="USPS">USPS</option>
+    </select></div>
+     <div class ="_30">
+  <select id="COC_Received_By" name="RecBy1" data-iconpos="left" data-icon="grid" onchange="formSubmit()">
+               <option>Relinquished To</option>
+	       <option value = "parroues@mt.gov">Pam</option>
+               <option value = "Steve">Steve</option>
+               <option value = "Rosie">Rosie</option>
+            </select></div>
+   <div class="_20">
+     <input type="date" id="Date_COC_Received" data-inline="false" data-role="date" name="COC_date" placeholder="Date" >
+   </div></div>
+  
+ <!--script>
+$(function() {
+$("#Date_COC_Received" ).date();
+});
+</script-->
+    
+ <hr /></fieldset>
+ <fieldset>
+    <div class="_100">
+  <div class ="_33">
+  <select id="RelBy2" name="RelBy2" data-iconpos="left" data-icon="grid">
+               <option>Relinquished by</option>
+	      <option value = "Pam">Pam</option>
+               <option value = "Steve">Steve</option>
+               <option value = "Booger">Booger</option>
+            </select></div>
+<div class="_33">
+    <select id="Ship2" name="Ship2" data-iconpos="left" data-icon="grid">
+    <option>Shipping Method</option>
+    <option value="hand">Hand Delivered</option>
+    <option value="FedExUPS">FedEx/UPS</option>
+    <option value="USPS">USPS</option>
+    </select></div>
+ <div class ="_33">
+  <select id="RelTo2" name="RelTo2" data-iconpos="left" data-icon="grid" onchange="formSubmit2()">
+               <option>Relinquished To</option>
+	       <option value = "DEQWQPBLibrary@mt.gov">State Lab</option>
+               <option value = "mpipp@mt.gov">Energy</option>
+               <option value = "Booger">Booger Labs</option>
+            </select></div></div>
+     <div class="_100"><input type="button" id="DownloadButton" value="Create XML" /></div>
+
+ </fieldset>
+     <h5> Lab Use Only</h5> <hr />
+      <div class="labUse"> <div class="_25"><br />Delivery Temperature</div>
+	   <div class="_30"><h6>Wet Ice (&#176;C)<input type="number" name="wetTemp" id="wetTemp" data-mini="true"></h6></div>
+       <div class="_30"><h6>Dry Ice (&#176;C)<input type="number" name="dryTemp" id="dryTemp" data-mini="true"></h6> </div> 
+  </div></div>
+        <div data-role="footer" data-id="SVFnav" data-theme="b">
+           <div data-role="navbar">
+           <ul>
+           <li><a href="#chapter1"><h4>Site Info</h4></a></li>
+            <li><a href="#chapter2"><h4>Samples</h4></a></li>
+             <li><a href="#chapter3"><h4>Field</h4></a></li>
+              <li><a href="#chapter4"><h4>Comments</h4></a></li>
+               <li><a class="ui-btn-active ui-state-persist"><h4>Lab Info</h4></a></li>
+               </ul>
+               </div></div>
+<div id="generated" style="display:none">
+      <h2>SiteVisit.xml</h2>
+        <div class="_50"><a href="#" class="ui-btn" id="SaveLink">Save</a></i>
+      </div>
+        <div class="_50"><a href="#" class="ui-btn" id="ResetForm" onclick="resetForm('SiteVisit');">Reset Form</a></div>
+ <textarea id="ResultXml" style="width: 100%; height: 300em"></textarea>
+      
+    </div>
+
+<!--script>
+    function resetForm(id) {
+	$('#'+id).each(function(){
+	        this.reset();
+	});
+} 
+</script-->           
+    
+</div>
+ 
+
+</form>
+    <!--script>
+
+    var Template = $('#Template');
+    var count = 0;
+    var nextId = 0;
+
+    Template.find('.removeNew').on('click', function (e) {
+        e.preventDefault();
+        $(this).closest('.template').remove();
+        count--;
+    });
+
+    function cloneTemplate(removable) {
+  
+        var clone = Template.clone(true, true);
+        clone.attr('id', clone.attr('id') + nextId);
+
+        clone.find('label[for]').each(function( index ) {
+            var elem = $(this);
+            elem.attr('for', elem.attr('for') + nextId);
+        });
+
+        clone.find('select, input').each(function( index ) {
+            var elem = $(this);
+            elem.attr('id', elem.attr('id') + nextId);
+            elem.attr('name', elem.attr('name') + nextId);
+        });
+
+        if (!removable) {
+            clone.find('.removeNew').remove();
+        }
+
+        clone.insertBefore("#addNew").removeClass('hide');
+        count++;
+        nextId++;
+    }
+
+    // Create First Analyte and delete the remove button.
+    cloneTemplate(false);
+
+    $('a.showNew').on('click', function (e) {
+        e.preventDefault();
+        cloneTemplate(true);
+        return false;
+    });
+
+</script--> 
+</body>
+</html>
