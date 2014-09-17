@@ -1,13 +1,13 @@
     function formSubmit()
     {
-                document.getElementById("SiteVisit").action = "mailto:DEQWQPBLibrary@mt.gov?cc=" + document.getElementById("COC_Received_By").value + "&subject=Site%20Visit%20Form";
+                document.getElementById("SiteVisit").action = "mailto:foo@boo.gov?cc=" + document.getElementById("COC_Received_By").value + "&subject=Site%20Visit%20Form";
                 document.getElementById("SiteVisit").submit();
     }
 
 
     function formSubmit2()
     {
-                document.getElementById("SiteVisit").action = "mailto:DEQWQPBLibrary@mt.gov?cc=" + document.getElementById("RelTo2").value + "&subject=Site%20Visit%20Form";
+                document.getElementById("SiteVisit").action = "mailto:foo@boo.gov?cc=" + document.getElementById("RelTo2").value + "&subject=Site%20Visit%20Form";
                 document.getElementById("SiteVisit").submit();
     }
   
@@ -34,7 +34,7 @@
         function getXML(){
             $.ajax({
             type: "GET",
-            url: "http://deq.mt.gov/wqinfo/WQlibrary/SiteVisit/WorkplanReview.xml",
+            url: "http://WorkplanReview.xml",
             dataType: "xml",
             success: function (xml) {
           
