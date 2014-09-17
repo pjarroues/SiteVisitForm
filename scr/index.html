@@ -37,22 +37,7 @@
     
     <script src="jquery.mobile-1.4.3.min.js"></script>
   
-    <!--script>
-    function formSubmit()
-    {
-                document.getElementById("SiteVisit").action = "mailto:DEQWQPBLibrary@mt.gov?cc=" + document.getElementById("COC_Received_By").value + "&subject=Site%20Visit%20Form";
-                document.getElementById("SiteVisit").submit();
-    }
-   </script-->
-
-    <!--script>
-    function formSubmit2()
-    {
-                document.getElementById("SiteVisit").action = "mailto:DEQWQPBLibrary@mt.gov?cc=" + document.getElementById("RelTo2").value + "&subject=Site%20Visit%20Form";
-                document.getElementById("SiteVisit").submit();
-    }
-    </script-->
-
+   
     <title>Site Visit Form</title>
 
     <meta name="HandheldFriendly" content="True" />
@@ -70,48 +55,7 @@
     <div data-role="header" data-theme="b">
         <h1>Site Information</h1>
     </div><!--/header-->
-    <!--script>
-        $(document).on('pageinit', function() {
-         var Workplans;
-        $('#btnxml').click(function() {
-            getXML();
-        });
-        $("#Project_ID").change(function () {
-            var selectedIndex = $('#Project_ID option').index($('#Project_ID option:selected')),
-                Workplan = $(Workplans[selectedIndex]);
-            $('#Basin').val(Workplan.find('Area').text());
-            $('#Station_Name').val(Workplan.find('Station_Name').text());
-            $('#Station_Description').val(Workplan.find('Station_Description').text());
-            $('#Station_ID').val(Workplan.find('Station_ID').text());
-            $('#Latitude').val(Workplan.find('Latitude').text());
-            $('#Longitude').val(Workplan.find('Longitude').text());
-            $('#HUC_8_Digit').val(Workplan.find('HUC_8_Digit').text());
-            $('#County').val(Workplan.find('County').text());
-            $('#Anticipated_Visits').val(Workplan.find('Anticipated_Visits').text());
-        });
-   
-        function getXML(){
-            $.ajax({
-            type: "GET",
-            url: "http://deq.mt.gov/wqinfo/WQlibrary/SiteVisit/WorkplanReview.xml",
-            dataType: "xml",
-            success: function (xml) {
-          
-            Workplans = $(xml).find('Workplan');
-        
-            Workplans.each(function () {
-                var Project_ID = $(this).find('Project_ID').text();
-                $("#Project_ID").append("<option>" + Project_ID + "</option>");
-            });
-
-            $("#Project_ID").trigger('change');
-                }
-            });
-            }
-        
-    });
-   
-    </script--> 
+  
  
  <div data-role="main" class="ui-content" id="Site">
 
@@ -148,42 +92,7 @@ $("#date-input" ).date();
         <label class=select for=Personnel>Personnel</label>
             <select id="Personnel" multiple name="Personnel" data-iconpos="left" data-icon="grid">
                 <option>Select all that apply</option>
-                <option>Andersen, Laura	</option>
-                <option>Apfelbeck, Randy</option>
-                <option>Arroues, Pamela	</option>
-                <option>Bostrom, Mark	</option>
-                <option>Clarke, Jessica	</option>
-                <option>Feldman, David	</option>
-                <option>Fernandes, Stephen</option>
-                <option>Flynn, Kyle	</option>
-                <option>Fortman, Kristy	</option>
-                <option>Grubb, Cary	</option>
-                <option>Kron, Darrin	</option>
-                <option>Kusnierz, Paul	</option>
-                <option>Makarowski, Katie</option>
-                <option>Makus, Erik	</option>
-                <option>McCarthy, Mindy	</option>
-                <option>McCauley, Ann	</option>
-		<option>McQuillan, Jolene</option>
-                <option>Nixon, Alan	</option>
-                <option>Ockey, Mark	</option>
-                <option>Pipp, Michael	</option>
-                <option>Ray, Robert	</option>
-                <option>Regensburger, Eric</option>
-                <option>Reistroffer, Steven</option>
-                <option>Sada, Rosie	</option>
-                <option>Schmidt, Christian</option>
-                <option>Sivers, Eric	</option>
-                <option>Smith, Connor	</option>
-                <option>Staten, Christina</option>
-                <option>Steinmetz, Amy	</option>
-                <option>Suplee, Mike	</option>
-                <option>Tollefson, Jordan</option>
-                <option>Trum, Eric	</option>
-                <option>Urban, Eric	</option>
-                <option>Volpe, Lou	</option>
-                <option>Yashan, Dean	</option>
-            </select>
+                            </select>
     </div>
   </div>
   <div class="_100">
@@ -253,32 +162,6 @@ $("#date-input" ).date();
         <button class="ui-btn ui-btn-b ui-mini" onclick="getLocationConstant()">Get Location</button>
     </div>
 
-            <!--script>
-                function getLocationConstant()
-                {
-                    if(navigator.geolocation)
-                {
-                    navigator.geolocation.getCurrentPosition(onGeoSuccess,onGeoError);  
-                } else {
-                alert("Your browser or device doesn't support Geolocation");
-                }
-                }
-
-            // If we have a successful location update
-                function onGeoSuccess(event)
-                {
-                    document.getElementById("Latitude").value =  event.coords.latitude; 
-                    document.getElementById("Longitude").value = event.coords.longitude;
-                    document.getElementById("Elevation").value = event.coords.altitude;
-                    document.getElementById("accuracy").value = event.coords.accuracy +"% accuracy";
-                }
-
-            // If something has gone wrong with the geolocation request
-                function onGeoError(event)
-                {
-                    alert("Error code " + event.code + ". " + event.message);
-                }
-            </script-->
 
     <div class="_10">Elevation <input type="number" name="height" id="Elevation">
     </div>
@@ -335,27 +218,7 @@ $("#date-input" ).date();
         <h1>Samples</h1>
     </div><!--/header-->
 
-        <!--script>
-            $("input[name='SiteVisitCode']").on('change', function(){
-                var SVCode = document.getElementById('SiteVisitCode');
-                    $('#WSampleID').val(SVCode.value +"-W");
-                    $("#QASampleID").val(SVCode.value +"-W-FB");
-                    $('#BactSampleID').val(SVCode.value +"-B");
-                    $("#BactQASampleID").val(SVCode.value +"-B-FD");
-                    $("#SedSampleID").val(SVCode.value +"-SED");
-                    $("#sedQASampleID").val(SVCode.value +"-SED-FD");
-                    $("#Benthic").val(SVCode.value +"-C");
-                    $("#phyChla").val(SVCode.value +"-PHY");
-                    //$("#D2").val(SVCode.value +"-PHY-R1");
-                    $("#CNPSample").val(SVCode.value +"-CNP");
-                    $("#algaeID").val(SVCode.value +"-A");
-                    $("#QAalgae").val(SVCode.value +"-A-FD");
-                    $("#macrosID").val(SVCode.value +"-M");
-                    // $("#CNP2").val(SVCode.value +"-QAP");
-                    $("#QAmacros").val(SVCode.value +"-M-FD");
-            })
-        </script-->
- 
+      
  <div data-role="main" class="ui-content" id="Samples">
   
   <div data-role="collapsible-set">
@@ -995,9 +858,7 @@ $transect.on('change', 'select', function() {
   <div class ="_30">
   <select id="RelBy1" name="RelBy1" data-iconpos="left" data-icon="grid">
                <option>Relinquished by</option>
-	       <option>	Andersen, Laura	</option>
-<option>	Apfelbeck, Randy</option>
-<option>	Arroues, Pamela	</option>
+	       <option>		</option>
 
             </select></div>
 <div class="_20">
@@ -1010,7 +871,7 @@ $transect.on('change', 'select', function() {
      <div class ="_30">
   <select id="COC_Received_By" name="RecBy1" data-iconpos="left" data-icon="grid" onchange="formSubmit()">
                <option>Relinquished To</option>
-	       <option value = "parroues@mt.gov">Pam</option>
+	       <option value = "">Pam</option>
                <option value = "Steve">Steve</option>
                <option value = "Rosie">Rosie</option>
             </select></div>
@@ -1044,8 +905,8 @@ $("#Date_COC_Received" ).date();
  <div class ="_33">
   <select id="RelTo2" name="RelTo2" data-iconpos="left" data-icon="grid" onchange="formSubmit2()">
                <option>Relinquished To</option>
-	       <option value = "DEQWQPBLibrary@mt.gov">State Lab</option>
-               <option value = "mpipp@mt.gov">Energy</option>
+	       <option value = "">State Lab</option>
+               <option value = "">Energy</option>
                <option value = "Booger">Booger Labs</option>
             </select></div></div>
      <div class="_100"><input type="button" id="DownloadButton" value="Create XML" /></div>
@@ -1075,64 +936,12 @@ $("#Date_COC_Received" ).date();
       
     </div>
 
-<!--script>
-    function resetForm(id) {
-	$('#'+id).each(function(){
-	        this.reset();
-	});
-} 
-</script-->           
+         
     
 </div>
  
 
 </form>
-    <!--script>
-
-    var Template = $('#Template');
-    var count = 0;
-    var nextId = 0;
-
-    Template.find('.removeNew').on('click', function (e) {
-        e.preventDefault();
-        $(this).closest('.template').remove();
-        count--;
-    });
-
-    function cloneTemplate(removable) {
   
-        var clone = Template.clone(true, true);
-        clone.attr('id', clone.attr('id') + nextId);
-
-        clone.find('label[for]').each(function( index ) {
-            var elem = $(this);
-            elem.attr('for', elem.attr('for') + nextId);
-        });
-
-        clone.find('select, input').each(function( index ) {
-            var elem = $(this);
-            elem.attr('id', elem.attr('id') + nextId);
-            elem.attr('name', elem.attr('name') + nextId);
-        });
-
-        if (!removable) {
-            clone.find('.removeNew').remove();
-        }
-
-        clone.insertBefore("#addNew").removeClass('hide');
-        count++;
-        nextId++;
-    }
-
-    // Create First Analyte and delete the remove button.
-    cloneTemplate(false);
-
-    $('a.showNew').on('click', function (e) {
-        e.preventDefault();
-        cloneTemplate(true);
-        return false;
-    });
-
-</script--> 
 </body>
 </html>
